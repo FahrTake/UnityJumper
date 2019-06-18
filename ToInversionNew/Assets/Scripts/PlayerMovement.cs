@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip fall;
 
     public SpriteRenderer myImage;
-    public AdsManager adsManager;
+    
 
     private void Update()
     {
@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
             info.SetActive(false);
             player.isKinematic = false;
 
+            /*
             if (PlayerPrefs.HasKey("Reward"))
             {
                 int reward = PlayerPrefs.GetInt("Reward");
@@ -52,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
                     colorManager.Inversion();
                     PlayerPrefs.SetInt("Reward", 0);
                 }
-            }
+            } */
 
         }
 
@@ -92,7 +93,6 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator ObjectsSetActive()
     {
-        adsManager.ShowBannerOrVideo();
         yield return new WaitForSeconds(1);
         score.GameOver();
         willActiveObjects.SetActive(true);

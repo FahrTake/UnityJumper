@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Advertisements;
+//using UnityEngine.Advertisements;
 
 public class AdsAdvertisement : MonoBehaviour
 {
+    /*
     public static AdsAdvertisement instance = null; // Экземпляр объекта
 
     private string store_id = "3131989";
@@ -35,7 +36,7 @@ public class AdsAdvertisement : MonoBehaviour
     // Метод инициализации менеджера
     private void InitializeManager()
     {
-        /* TODO: Здесь мы будем проводить инициализацию */
+        /* TODO: Здесь мы будем проводить инициализацию   * /
         Advertisement.Initialize(store_id, false);
         StartCoroutine(ShowBannerWhenReady());
     }
@@ -63,7 +64,7 @@ public class AdsAdvertisement : MonoBehaviour
         if(bannerReady)
             Advertisement.Banner.Hide();
 
-    }
+    } */
 
 }
 
