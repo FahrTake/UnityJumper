@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip fall;
 
     public SpriteRenderer myImage;
-    
+    public AdsManager adsManager;
 
     private void Update()
     {
@@ -92,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator ObjectsSetActive()
     {
+        adsManager.ShowBannerOrVideo();
         yield return new WaitForSeconds(1);
         score.GameOver();
         willActiveObjects.SetActive(true);

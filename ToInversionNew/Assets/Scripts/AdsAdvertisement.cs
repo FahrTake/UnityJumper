@@ -9,6 +9,7 @@ public class AdsAdvertisement : MonoBehaviour
 
     private string store_id = "3131989";
     private string banner = "banner";
+    private bool bannerReady = false;
 
     // Метод, выполняемый при старте игры
     void Start()
@@ -35,7 +36,7 @@ public class AdsAdvertisement : MonoBehaviour
     private void InitializeManager()
     {
         /* TODO: Здесь мы будем проводить инициализацию */
-        Advertisement.Initialize(store_id, true);
+        Advertisement.Initialize(store_id, false);
         StartCoroutine(ShowBannerWhenReady());
     }
 
@@ -45,8 +46,24 @@ public class AdsAdvertisement : MonoBehaviour
         {
             yield return new WaitForSeconds(0.5f);
         }
-        Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
-        Advertisement.Banner.Show(banner);
+        bannerReady = true;
     }
+
+    public void ShowBanner()
+    {
+        if (bannerReady)
+        {
+            Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
+            Advertisement.Banner.Show(banner);
+        }
+    }
+
+    public void HideBanner()
+    {
+        if(bannerReady)
+            Advertisement.Banner.Hide();
+
+    }
+
 }
 

@@ -213,6 +213,7 @@ GameObject:
   m_Component:
   - component: {fileID: 26169856}
   - component: {fileID: 26169857}
+  - component: {fileID: 26169858}
   m_Layer: 0
   m_Name: Ads
   m_TagString: Untagged
@@ -244,6 +245,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a7c2236f865c5e42b7500c783ae13d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &26169858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26169855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3a0500a9ed17a14fbe1bba1b53a99ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &32586975

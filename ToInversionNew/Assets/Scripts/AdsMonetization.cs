@@ -6,8 +6,15 @@ public class AdsMonetization : MonoBehaviour
 {
     public static AdsMonetization instance = null; // Экземпляр объекта
 
+    private string store_id = "3131989";
+
     private string video = "video";
     private string rewardedVideo = "rewardedVideo";
+
+
+    ShowAdPlacementContent videoAd = null;
+    ShowAdPlacementContent rewardedAd = null;
+    private bool videoReady = false, rewardedReady = false;
 
     // Метод, выполняемый при старте игры
     void Start()
@@ -35,6 +42,59 @@ public class AdsMonetization : MonoBehaviour
     {
         /* TODO: Здесь мы будем проводить инициализацию */
 
+        Monetization.Initialize(store_id, false);
+        StartCoroutine(ShowAdWhenReady());
+        StartCoroutine(WaitForAd());
+
+    }
+    
+    private IEnumerator ShowAdWhenReady()
+    {
+        while (!Monetization.IsReady(video))
+        {
+            yield return new WaitForSeconds(0.25f);
+        }
+        
+        videoAd = Monetization.GetPlacementContent(video) as ShowAdPlacementContent;
+        videoReady = true;
+    }
+
+    public void ShowVideo()
+    {
+        if ((videoAd != null) && (videoReady))
+        {
+           videoAd.Show();
+        }
+    }
+
+    IEnumerator WaitForAd()
+    {
+        while (!Monetization.IsReady(rewardedVideo))
+        {
+            yield return null;
+        }
+        
+        rewardedAd = Monetization.GetPlacementContent(rewardedVideo) as ShowAdPlacementContent;
+        rewardedReady = true;
+        
+    }
+
+    public void ShowRewarded()
+    {
+        if ((rewardedAd != null) && (rewardedReady))
+        {
+            rewardedAd.Show(AdFinished);
+        }
+    }
+
+    void AdFinished(ShowResult result)
+    {
+        if (result == ShowResult.Finished)
+        {
+            // Reward the player
+            PlayerPrefs.SetInt("Reward", 1);
+            Debug.Log("Reward Finish");
+        }
     }
 
 
