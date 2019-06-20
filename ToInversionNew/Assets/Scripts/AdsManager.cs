@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AdsManager : MonoBehaviour
 {
-    /*
     private int random;
 
     private void Start()
@@ -35,5 +34,4 @@ public class AdsManager : MonoBehaviour
     {
         AdsMonetization.instance.ShowRewarded();
     }
-    */
 }

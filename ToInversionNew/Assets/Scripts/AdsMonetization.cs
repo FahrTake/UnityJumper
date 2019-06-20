@@ -1,11 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
-//using UnityEngine.Monetization;
+using UnityEngine.Monetization;
 
 public class AdsMonetization : MonoBehaviour
 {
-
-    /*
     public static AdsMonetization instance = null; // Экземпляр объекта
 
     private string store_id = "3131989";
@@ -42,7 +40,7 @@ public class AdsMonetization : MonoBehaviour
     // Метод инициализации менеджера
     private void InitializeManager()
     {
-        /* TODO: Здесь мы будем проводить инициализацию * /
+        /* TODO: Здесь мы будем проводить инициализацию */
 
         Monetization.Initialize(store_id, false);
         StartCoroutine(ShowAdWhenReady());
@@ -95,9 +93,8 @@ public class AdsMonetization : MonoBehaviour
         {
             // Reward the player
             PlayerPrefs.SetInt("Reward", 1);
-            Debug.Log("Reward Finish");
         }
-    } */
+    } 
 
 
 }
